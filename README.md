@@ -1,11 +1,11 @@
 # Study note with following topics ([markdown syntax](./markdown/readme.md))
 
-## 1. [cmd](cmd/README.md)
+## 1. [cmd](cmd/index.md)
 
-## 2. [sql](sql/README.md)
+## 2. [sql](sql/index.md)
 
-## 3. [nodejs](nodejs/README.md)
+## 3. [nodejs](nodejs/index.md)
 
-## 4. [javascript](javascript/readme.md)
+## 4. [javascript](javascript/index.md)
 
-## 5. [others](others/readme.md)
+## 5. [others](others/index.md)
