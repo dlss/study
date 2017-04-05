@@ -1,5 +1,5 @@
 # Object
-[!include[<Object test>](./object_test.html)]
+[!include[Object test](./object_test.html)]
 
 
 
