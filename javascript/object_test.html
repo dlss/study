@@ -1,0 +1,188 @@
+﻿<html>
+<head>
+    <script type="text/javascript">
+        window.onload = function () {
+            //NativeObject_test();
+            //HostObject_test();
+            //ObjectInstance_test();
+
+            //Object_test();
+            //Object_defineProperty_test();
+            Object_defineProperties_test();
+            //others_test();
+        }
+
+        // Native Object
+        var NativeObject_test = function () {
+            log(Object);
+            log(Function);
+            log(Function);
+            log(Array);
+            log(Boolean);
+            log(Date);
+            log(Number);
+            log(RegExp);
+            log(Error);
+            log(Object.constructor);
+
+            // Build-in Object
+            //log(Global.valueOf());
+            log(Math);
+
+            log({ id: '123' });
+        }
+
+        var HostObject_test = function () {
+            log(window);
+            //log(wscript);
+        }
+
+        var ObjectInstance_test = function () {
+            var obj1 = {
+                "id": "obj1"
+            };
+            log(obj1);
+            // constructor
+            log(obj1.constructor);                          // function Object() { [native code] }
+            // hasOwnProperty
+            log(obj1.hasOwnProperty("id"));                 // true
+            log(obj1.hasOwnProperty("name"));               // false
+            log(obj1.hasOwnProperty("constructor"));        // false
+            // isPrototypeOf
+            log(Object.prototype.isPrototypeOf(obj1));      // true
+            // propertyIsEnumerable
+            log(obj1.propertyIsEnumerable('id'));           // true
+            log(obj1.propertyIsEnumerable('name'));         // false
+            log(obj1.propertyIsEnumerable('constructor'));  // false
+            // toLocaleString
+            log(obj1.toLocaleString());
+            log(new Date().toLocaleString());
+            // toString
+            log(obj1.toString());
+            log(new Date().toString());
+            // valueOf
+            log({ id: '123', name: 'sun' }.valueOf());
+            log([1, 2].valueOf());
+            log(new Date().valueOf());
+
+            /*
+            set __proto__
+            get __proto__
+            __defineGetter__
+            __defineSetter__
+            __lookupGetter__
+            __lookupSetter__
+            */
+
+        }
+
+        var Object_defineProperty_test = function () {
+            var obj = { id: 123, name: "myname" };
+            log("-----------before---------------");
+            log(Object.keys(obj));
+
+            Object.defineProperty(obj, "name", {
+                configurable: false,
+                enumerable: false,
+                writable: false,
+                value: 'noname'
+            });
+            log("-----------after---------------");
+            log(Object.keys(obj));
+        }
+
+        var Object_defineProperties_test = function () {
+            var person = {};
+            Object.defineProperties(person, {
+                "id": {
+                    configurable: false,
+                    enumerable: false,
+                    writable: true,
+                    value: 0
+                },
+                "name": {
+                    configurable: false,
+                    enumerable: true,
+                    writable: true,
+                    value: 'noname'
+                },
+                "age": {
+                    configurable: false,
+                    enumerable: true,
+                    //writable: true,
+                    //value: 1,
+                    set: function (newValue) {
+                        this.type = (this.age > 17 ? "adult" : "children");
+                    }
+                },
+                "type": {
+                    configurable: false,
+                    enumerable: true,
+                    //writable: false,
+                    //value: "children",
+                    get: function () {
+                        this.age > 17 ? "adult" : "children"
+                    }
+                }
+            });
+
+            person.age = 18;
+            log(person);
+            //log(person.id);
+            //log(person.name);
+            //log(person.age);
+            //log(person.type);
+
+            log(Object.getOwnPropertyDescriptor(person, "id"));
+            log(Object.getOwnPropertyDescriptor(person, "name"));
+            log(Object.getOwnPropertyDescriptor(person, "age"));
+            log(Object.getOwnPropertyDescriptor(person, "type"));
+
+            log(Object.keys(person));
+            for (var i in person) log(i);
+            log(Object.getOwnPropertyNames(person));
+        }
+
+        // Object.keys(obj) = for(var i in obj)
+        var Object_keys_test = function () {
+            var obj = { 'a': '123', 'b': '345' };
+            log(Object.keys(obj));  // ['a','b']
+
+            var obj1 = { 100: "a", 2: "b", 7: "c" };
+            log(Object.keys(obj1)); // ["2", "7", "100"]
+
+            var obj2 = Object.create({}, { getFoo: { value: function () { return this.foo } } });
+            obj2.foo = 1;
+            log(Object.keys(obj2)); // ["foo"]
+
+            var str = 'ab1234';
+            log(Object.keys(str));  // [0,1,2,3,4,5]
+        }
+
+        var others_test = function () {
+            //Function.prototype.read = function () { };
+            //for (var i in Object) log(i);
+
+            //Object.prototype.read = function () { };
+            //for (var i in Object) log(i);
+
+            for (var i in Function) log(i);
+            //for (var i in Constructor) log(i);
+            //for (var i in Prototype) log(i);
+        }
+
+        var log = function (info) {
+            console.log(info);
+            //document.getElementById("show").innerText += info;
+        }
+
+    </script>
+    <title>Javascript Object</title>
+</head>
+<body>
+    <div>
+        <!--<input id="show" type="text" multiple="" style="width:900px; height:300px;" />-->
+        <textarea id="show" style="width:900px; height:300px;"></textarea>
+    </div>
+</body>
+</html>
