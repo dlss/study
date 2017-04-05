@@ -1,4 +1,4 @@
-# Study note with following topics ([markdown syntax](./markdown/readme.md))
+# Study note with following topics ([markdown syntax](./markdown/index.md))
 
 ## 1. [cmd](cmd/index.md)
 
