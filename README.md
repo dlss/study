@@ -5,3 +5,7 @@
 ## 2. [sql](sql/README.md)
 
 ## 3. [nodejs](nodejs/README.md)
+
+## 4. [javascript](javascript/readme.md)
+
+## 5. [others](others/readme.md)
