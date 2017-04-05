@@ -1,8 +1,5 @@
 # Object
-## Keys
-## property
-## construct
-
+[!include[<Object test>](<./object_test.html>)]
 
 
 
