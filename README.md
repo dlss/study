@@ -1,4 +1,4 @@
-# study repo with following topic
+# Study note with following topics ([markdown syntax](./markdown/readme.md))
 
 ## 1. [cmd](cmd/README.md)
 
