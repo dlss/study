@@ -1,6 +1,7 @@
-# date & time
+# Others
 
-## demo:
+## date & time
+### demo:
 **test.bat**
 >@echo off  
 echo %date% %time%  
