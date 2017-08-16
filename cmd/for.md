@@ -120,6 +120,6 @@ FOR /F ["options"] %%variable IN ('command') DO command [command-parameters]  
 >rebase.bat "OPS-E2E-PPE\azure-docs-cli-python" "https://github.com/OPS-E2E-PPE/azure-docs-cli-python.git"  
 >rebase.bat "OPS-E2E-PRO\Dazure-docs-cli-python" "https://github.com/OPS-E2E-PROD/azure-docs-cli-python.git"  
 
-**reference: 
+**reference:  
 http://club.topsage.com/thread-597580-1-1.html   
 http://blog.csdn.net/wh_19910525/article/details/7912440**
